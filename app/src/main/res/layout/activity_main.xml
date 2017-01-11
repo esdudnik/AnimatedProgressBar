@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.android.esdudnik.animatedprogressbar.ui.activity.MainActivity">
+
+    <TextView
+        android:id="@+id/integerPartTextView"
+        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="@dimen/margin_top"
+        android:layout_marginTop="@dimen/margin_top"
+        android:padding="@dimen/textview_padding"
+        android:text="@string/integer_part_animation_duration"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="@dimen/margin_top" />
+
+    <EditText
+        android:id="@+id/integerAnimationTimeEditText"
+        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:minWidth="@dimen/edittext_min_width"
+        android:layout_marginLeft="@dimen/margin_top"
+        app:layout_constraintTop_toTopOf="@+id/integerPartTextView"
+        app:layout_constraintBottom_toBottomOf="@+id/integerPartTextView"
+        app:layout_constraintLeft_toRightOf="@+id/integerPartTextView"
+        android:layout_marginStart="@dimen/margin_top" />
+
+    <TextView
+        android:id="@+id/decimalPartTextView"
+        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="@dimen/margin_top"
+        android:layout_marginTop="@dimen/margin_top"
+        android:padding="@dimen/textview_padding"
+        android:text="@string/decimal_part_animation_duration"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/integerPartTextView"
+        android:layout_marginStart="@dimen/margin_top" />
+
+    <EditText
+        android:id="@+id/decimalAnimationTimeEditText"
+        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:minWidth="@dimen/edittext_min_width"
+        android:layout_marginLeft="@dimen/margin_top"
+        app:layout_constraintTop_toTopOf="@+id/decimalPartTextView"
+        app:layout_constraintBottom_toBottomOf="@+id/decimalPartTextView"
+        app:layout_constraintLeft_toRightOf="@+id/decimalPartTextView"
+        android:layout_marginStart="@dimen/margin_top" />
+
+    <TextView
+        android:id="@+id/valueTextView"
+        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="@dimen/margin_top"
+        android:layout_marginTop="@dimen/margin_top"
+        android:padding="@dimen/textview_padding"
+        android:text="@string/new_value"
+        android:gravity="center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/decimalPartTextView"
+        android:layout_marginStart="@dimen/margin_top" />
+
+    <EditText
+        android:id="@+id/newValueEditText"
+        android:layout_height="40dp"
+        android:layout_width="wrap_content"
+        android:minWidth="@dimen/edittext_min_width"
+        android:layout_marginLeft="@dimen/margin_top"
+        app:layout_constraintTop_toTopOf="@+id/valueTextView"
+        app:layout_constraintBottom_toBottomOf="@+id/valueTextView"
+        app:layout_constraintLeft_toRightOf="@+id/valueTextView"
+        android:layout_marginStart="@dimen/margin_top" />
+
+    <Button
+        android:id="@+id/addValueButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_top"
+        android:padding="@dimen/textview_padding"
+        android:text="@string/add_value"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/valueTextView"/>
+
+    <com.android.esdudnik.animatedprogressbar.ui.view.CashbackBar
+        android:id="@+id/cashbackBar"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/cashback_bar_height"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

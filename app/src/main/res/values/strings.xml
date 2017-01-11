@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AnimatedProgressBar</string>
+
+    <string name="integer_part_animation_duration">Integer part duration:</string>
+    <string name="decimal_part_animation_duration">Integer part duration:</string>
+    <string name="new_value">New value:</string>
+    <string name="add_value">Add value</string>
+</resources>
