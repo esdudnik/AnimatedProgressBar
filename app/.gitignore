@@ -1,35 +1,47 @@
-# Built application files
-*.apk
-*.ap_
-
-# files for the dex VM
-*.dex
-
-# Java class files
-*.class
-
-# java executables
-*.jar
-
-# generated files
-bin/
-gen/
-docs/
-
-# Eclipse project files
-.classpath
-.project
-/.settings
-previews.xml
-
+#Android generated
+bin
+gen
+out
 lint.xml
+project.properties
+.apk
+
+#Eclipse
+.project
+.classpath
+.settings
+.checkstyle
+
+#IntelliJ IDEA
+.idea
 *.iml
+library/facebook/*.iml
+*.ipr
+*.iws
+classes
+app/out
+gen-external-apklibs
 
+#Gradle
+.gradle
+build
+gradle.properties
 
-.idea/
-.gradle/
-gradle*
-build/
+#Maven
+target
+release.properties
+pom.xml.*
 
-/local.properties
+#Ant
+bin
+gen
+build.xml
+ant.properties
+local.properties
+proguard-project.txt
+
+#Other
 .DS_Store
+tmp
+
+com_crashlytics_export_strings.xml
