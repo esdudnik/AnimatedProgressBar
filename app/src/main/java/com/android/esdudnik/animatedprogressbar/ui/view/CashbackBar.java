@@ -3,7 +3,6 @@ package com.android.esdudnik.animatedprogressbar.ui.view;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
@@ -15,6 +14,7 @@ import android.widget.ViewSwitcher;
 
 import com.android.esdudnik.animatedprogressbar.R;
 
+import java.lang.ref.WeakReference;
 import java.text.DecimalFormat;
 
 /**
@@ -148,7 +148,7 @@ public class CashbackBar extends RelativeLayout {
         private float mCount;
         private float mFinalValue;
         private DecimalFormat mDecimalFormat;
-        private RunnableStopListener mRunnableStopListener;
+        private WeakReference<RunnableStopListener> mRunnableStopListener;
 
         IntegerPartRunnable(TextSwitcher textSwitcher, Bundle args, RunnableStopListener runnableStopListener) {
             super(textSwitcher, args);
@@ -156,7 +156,7 @@ public class CashbackBar extends RelativeLayout {
             mCount = (float) Math.floor(mCount);
             mFinalValue = args.getFloat(FINAL_VALUE_PARAMETER_NAME);
             mDecimalFormat = new DecimalFormat("#.0");
-            mRunnableStopListener = runnableStopListener;
+            mRunnableStopListener = new WeakReference<>(runnableStopListener);
         }
 
         @Override
@@ -165,8 +165,9 @@ public class CashbackBar extends RelativeLayout {
             textSwitcher.setText(mDecimalFormat.format(mCount));
             if (mFinalValue - mCount < 1) {
                 terminate();
-                if (mRunnableStopListener != null) {
-                    mRunnableStopListener.stopped(Float.parseFloat(mDecimalFormat.format(mCount)));
+                RunnableStopListener runnableStopListener = mRunnableStopListener.get();
+                if (runnableStopListener != null) {
+                    runnableStopListener.stopped(Float.parseFloat(mDecimalFormat.format(mCount)));
                 }
             }
         }
@@ -181,14 +182,14 @@ public class CashbackBar extends RelativeLayout {
         private float mCount;
         private float mFinalValue;
         private DecimalFormat mDecimalFormat;
-        private RunnableStopListener mRunnableStopListener;
+        private WeakReference<RunnableStopListener> mRunnableStopListener;
 
         DecimalPartRunnable(TextSwitcher textSwitcher, Bundle args, RunnableStopListener runnableStopListener) {
             super(textSwitcher, args);
             mCount = args.getFloat(CURRENT_VALUE_PARAMETER_NAME);
             mFinalValue = args.getFloat(FINAL_VALUE_PARAMETER_NAME);
             mDecimalFormat = new DecimalFormat("#.0");
-            mRunnableStopListener = runnableStopListener;
+            mRunnableStopListener = new WeakReference<>(runnableStopListener);
         }
 
         @Override
@@ -197,8 +198,9 @@ public class CashbackBar extends RelativeLayout {
             textSwitcher.setText(mDecimalFormat.format(mCount));
             if (mCount >= mFinalValue) {
                 terminate();
-                if (mRunnableStopListener != null) {
-                    mRunnableStopListener.stopped(Float.parseFloat(mDecimalFormat.format(mCount)));
+                RunnableStopListener runnableStopListener = mRunnableStopListener.get();
+                if (runnableStopListener != null) {
+                    runnableStopListener.stopped(Float.parseFloat(mDecimalFormat.format(mCount)));
                 }
             }
         }

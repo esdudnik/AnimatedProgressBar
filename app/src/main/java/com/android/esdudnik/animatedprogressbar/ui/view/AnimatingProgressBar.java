@@ -34,7 +34,6 @@ public class AnimatingProgressBar extends ProgressBar {
 
     public AnimatingProgressBar(Context context, AttributeSet attrs, int defStyle) {
         this(context, attrs, defStyle, 0);
-        initValueAnimators();
     }
 
     public AnimatingProgressBar(Context context, AttributeSet attrs, int defStyle, int defStyleRes) {
